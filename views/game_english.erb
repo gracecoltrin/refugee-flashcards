@@ -8,10 +8,6 @@
         Your current score is:
         <%= session["score"] %>
       </p>
-      <p>
-        You've missed:
-        <%= session["missed"] %>
-      </p>
       <pre>
         <%= FLASH_CARDS[session["cards"]] %>
       </pre>
@@ -28,6 +24,7 @@
           </div>
         <% end %>
         <button type="submit" class="btn btn-default">Submit</button>
+        <a href="/">back</a>
       </form>
     </div>
     <div class="col-md-3"></div>
