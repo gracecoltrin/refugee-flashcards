@@ -9,23 +9,24 @@
         Your current score is:
         <%= session["score"] %>
       </p>
-      <p>
-        You've missed:
-        <%= session["missed"] %>
-      </p>
       <% if @correct %>
         <h1>You got it correct</h1>
+      <div>
+      <a href="/game_english">Next Round</a>
+      </div>
+      <br />
+      <div>
+      <a href="/">home page</a>
+      </div>
       <% else %>
         <h1>You got it wrong</h1>
-      <% end %>
-      <% if session["score"] >= 10 %>
-        <h1>...And you won!</h1>
-        <a href="/">New Game</a>
-      <% elsif session["missed"] >= 5 %>
-        <h1>...And you lost!</h1>
-        <a href="/">New Game</a>
-      <% else %>
-        <a href="/game">Next Round</a>
+      <div>
+      <a href="/game_english">Next Round</a>
+      </div>
+      <br />
+      <div>
+      <a href="/">home page</a>
+      </div>
       <% end %>
      </div>
     <div class="col-md-3"></div>
