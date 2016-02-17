@@ -7,7 +7,6 @@ FLASH_CARDS = {
 	"to ring a bell" => "to remind or to sound vaguely familiar",
 	"a cop" => "a policeman or law enforcer",
 	"to be bummed" => "to be upset",
-	"to take a rain check" => "",
 	"to get fired" => "to be kicked out of your job",
 	"to get over something" => "to not care anymore",
 	"rule of thumb" => "a personal rule or thing to remember",
