@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <p>
+        النتيجة الحالية هي:
+        <%= session["score"] %>
+      </p>
+      <pre>
+        <%= ARABICFLASH_CARDS[session["arabic"]] %>
+      </pre>
+      <form action="/arabicsub" method="post">
+        <label>الرجاء اختيار واحدة من الإجابات أدناه</label>
+        <% @choices.each do |choice| %>
+          <div class="form-group">
+            <div class="radio">
+              <label>
+                <input type="radio" name="guess" value="<%= choice %>"> </input>
+                <%= choice %>
+              </label>
+            </div>
+          </div>
+        <% end %>
+        <button type="submit" class="btn btn-default">عرض</button>
+        <a href="/">سابق</a>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
