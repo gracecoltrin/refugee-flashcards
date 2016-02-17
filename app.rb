@@ -1,0 +1,48 @@
+require("sinatra")
+require_relative("flashcards")
+
+enable :sessions
+
+get("/") do
+  # Reset the game
+  session["score"] = 0
+  session["missed"] = 0
+  erb :index
+end
+
+get("/game") do
+  session["ascii"] = random_flashcard_name
+  if session["score"] == nil
+    session["score"] = 0
+  end
+
+  # Equivalent to session["missed"] ||= 0
+  if session["missed"] == nil
+    session["missed"] = 0
+  end
+
+  # Build my choices array
+  @choices = []
+  @choices.push(session["cards"])
+  while @choices.count < 3
+    new_choice = random_flashcard_name
+    if @choices.include?(new_choice)
+    else
+      @choices.push(new_choice)
+    end
+  end
+  @choices = @choices.shuffle
+  erb :game
+end
+
+post("/submission") do
+  if params["guess"] == session["cards"]
+    @correct = true
+    session["score"] += 1
+  else
+    @correct = false
+    session["missed"] += 1
+  end
+
+  erb :submission
+end
